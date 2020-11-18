@@ -25,6 +25,13 @@ def read_dataset():
     return df1['Clean Text'].values, df2['Clean Text'].values
 
 
+def print_dataset(data1, data2):
+    print(data1)
+    print("\n")
+    print(data2)
+
+
+
 def preprocess_data(data1, data2):
     data1 = clean_dataset(data1)
     data2 = clean_dataset(data2)
@@ -122,7 +129,17 @@ if __name__ == "__main__":
 
     data1, data2 = read_dataset()
 
+    print("Data Before Cleaning")
+    print_dataset(data1, data2)
+    print("\n\n")
+    
+    print("Data After Cleaning")
+    print_dataset(clean_dataset(data1), clean_dataset(data2))
+    print("\n\n")
+
     data, labels = preprocess_data(data1, data2)
+
+    print("Common WORDS:", data)
 
     feature_matrix = feature_extraction(data)
 
